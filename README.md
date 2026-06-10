@@ -158,7 +158,7 @@ bash ros2_ws/src/soa_ros2/build.sh
 
 ### Pre-trained models
 
-Models live under `~/techin517/outputs/train/`. Download from the team's HuggingFace org:
+Models live under `~/techin517/outputs/train/`. Pre-trained weights and the recorded dataset are on HuggingFace:
 
 | Policy | HF path | Local path |
 |---|---|---|
@@ -181,7 +181,7 @@ sudo chmod 666 /dev/ttyACM* /dev/video*      # permissions reset on every replug
 
 ## Usage
 
-The full pipeline runs in three terminals — MoveIt bringup, two Rosetta policy clients, then the grasp pipeline. Pre-trained checkpoints live under [SuzyBeatSushi](https://huggingface.co/SuzyBeatSushi) on HuggingFace.
+The full pipeline runs in three terminals — MoveIt bringup, two Rosetta policy clients, then the grasp pipeline.
 
 ### 1. Calibrate the arms (one-time per arm)
 
