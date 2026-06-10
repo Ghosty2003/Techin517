@@ -1,4 +1,4 @@
-condition,cycles,passes,fails,success_rate,cycle_time_min_s,cycle_time_max_s,cycle_time_mean_s
-A,50,31,19,62.0%,47,85,62.5
-B,50,23,27,46.0%,39,115,80.8
-C,50,17,33,34.0%,60,130,101.4
+condition,trials,cycles,passes,fails,success_rate,cycle_time_min_s,cycle_time_max_s,cycle_time_mean_s
+A,10,30,16,14,53.3%,47,85,63.5
+B,10,45,19,26,42.2%,39,115,81.3
+C,10,55,18,37,32.7%,60,130,101.7
