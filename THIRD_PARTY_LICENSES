@@ -1,0 +1,599 @@
+THIRD-PARTY SOFTWARE NOTICES AND LICENSE INFORMATION
+======================================================
+
+This file contains license notices for third-party software used in this
+project (TECHIN 517 - Robotic Manipulation).
+
+> NOTE ON AGPL-3.0 / GPL-3.0 COMPONENTS
+> yolo_ros and ultralytics (YOLO) are licensed under GPL-3.0 and AGPL-3.0
+> respectively. If you redistribute this software or run it as a networked
+> service, those licenses' copyleft terms may apply to the combined work.
+> Consult a legal professional if redistribution is intended.
+
+================================================================================
+TABLE OF CONTENTS
+================================================================================
+
+  1.  lerobot (HuggingFace)                  ........  Apache-2.0 + MIT
+  2.  rosetta / rosetta_interfaces            ........  Apache-2.0
+  3.  lerobot_robot_rosetta                   ........  Apache-2.0
+  4.  lerobot_teleoperator_rosetta            ........  Apache-2.0
+  5.  aruco_tracker_ros2                      ........  Apache-2.0
+  6.  soa_ros2 packages                       ........  Apache-2.0
+  7.  pymoveit2                               ........  BSD
+  8.  warehouse_ros_mongo                     ........  BSD
+  9.  feetech_ros2_driver                     ........  BSD
+  10. soa_moveit_config                       ........  BSD
+  11. yolo_ros                                ........  GPL-3.0
+  12. ROS 2 core packages                     ........  Apache-2.0
+  13. PyTorch / torchvision / torchcodec      ........  BSD-3-Clause
+  14. NumPy                                   ........  BSD-3-Clause
+  15. OpenCV (opencv-python-headless)         ........  Apache-2.0
+  16. HuggingFace libraries                   ........  Apache-2.0
+      (datasets, diffusers, huggingface-hub, accelerate)
+  17. ultralytics (YOLO)                      ........  AGPL-3.0
+  18. gymnasium                               ........  MIT
+  19. einops                                  ........  MIT
+  20. rerun-sdk                               ........  Apache-2.0
+  21. pynput                                  ........  LGPL-3.0
+  22. pyserial                                ........  BSD-3-Clause
+  23. PyAV (av)                               ........  BSD-3-Clause
+  24. wandb                                   ........  MIT
+  25. termcolor                               ........  MIT
+  26. deepdiff                                ........  MIT
+  27. imageio                                 ........  BSD-2-Clause
+  28. jsonlines                               ........  MIT
+  29. draccus                                 ........  Apache-2.0
+  30. packaging                               ........  Apache-2.0 / BSD-2-Clause
+  31. lap                                     ........  BSD-2-Clause
+  32. isaaclab / isaaclab_rl                  ........  BSD-3-Clause
+  33. setuptools                              ........  MIT
+  34. typing-extensions                       ........  PSF-2.0
+
+================================================================================
+1. lerobot — Apache-2.0 (with embedded MIT notices)
+   Copyright 2024 The HuggingFace Inc. team
+   https://github.com/huggingface/lerobot
+================================================================================
+
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media formats.
+
+      "Work" shall mean the work of authorship, whether in Source or Object
+      form, made available under the License, as indicated by a copyright
+      notice that is included in or attached to the work (an example is
+      provided in the Appendix below).
+
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      "Contribution" shall mean any work of authorship, including the
+      original version of the Work and any modifications or additions to
+      that Work or Derivative Works thereof, that is intentionally submitted
+      to the Licensor for inclusion in the Work by the copyright owner or by
+      an individual or Legal Entity authorized to submit on behalf of the
+      copyright owner.
+
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by the Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of, publicly
+      display, publicly perform, sublicense, and distribute the Work and
+      such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of this
+      License, each Contributor hereby grants to You a perpetual, worldwide,
+      non-exclusive, no-charge, royalty-free, irrevocable (except as stated
+      in this section) patent license to make, have made, use, offer to
+      sell, sell, import, and otherwise transfer the Work, where such
+      license applies only to those patent claims licensable by such
+      Contributor that are necessarily infringed by their Contribution(s)
+      alone or by combination of their Contribution(s) with the Work to
+      which such Contribution(s) was submitted.
+
+   4. Redistribution. You may reproduce and distribute copies of the Work
+      or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You meet
+      the following conditions:
+
+      (a) You must give any other recipients of the Work or Derivative Works
+          a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works that
+          You distribute, all copyright, patent, trademark, and attribution
+          notices from the Source form of the Work, excluding those notices
+          that do not pertain to any part of the Derivative Works; and
+
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, in at least one of the following places:
+          within a NOTICE text file distributed as part of the Derivative
+          Works; within the Source form or documentation, if provided along
+          with the Derivative Works; or, within a display generated by the
+          Derivative Works, if and wherever such third-party notices
+          normally appear.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work by
+      You to the Licensor shall be under the terms and conditions of this
+      License, without any additional terms or conditions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or agreed
+      to in writing, Licensor provides the Work (and each Contributor
+      provides its Contributions) on an "AS IS" BASIS, WITHOUT WARRANTIES
+      OR CONDITIONS OF ANY KIND, either express or implied, including,
+      without limitation, any warranties or conditions of TITLE,
+      NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR
+      PURPOSE.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise, shall
+      any Contributor be liable to You for damages, including any direct,
+      indirect, special, incidental, or consequential damages of any
+      character arising as a result of this License or out of the use or
+      inability to use the Work.
+
+   9. Accepting Warranty or Additional Liability. While redistributing the
+      Work or Derivative Works thereof, You may choose to offer, and charge
+      a fee for, acceptance of support, warranty, indemnity, or other
+      liability obligations and/or rights consistent with this License.
+
+   END OF TERMS AND CONDITIONS
+
+----------------------------------------------------------------------
+   lerobot embeds code derived from the following MIT-licensed projects:
+
+   Diffusion Policy — MIT License
+   Copyright (c) 2023 Columbia Artificial Intelligence and Robotics Lab
+
+   FOWM — MIT License
+   Copyright (c) 2023 Yunhai Feng
+
+   simxarm — MIT License
+   Copyright (c) 2023 Nicklas Hansen & Yanjie Ze
+
+   ALOHA — MIT License
+   Copyright (c) 2023 Tony Z. Zhao
+
+   Permission is hereby granted, free of charge, to any person obtaining a
+   copy of this software and associated documentation files (the "Software"),
+   to deal in the Software without restriction, including without limitation
+   the rights to use, copy, modify, merge, publish, distribute, sublicense,
+   and/or sell copies of the Software, and to permit persons to whom the
+   Software is furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in
+   all copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+   OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+   NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+   DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+   OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+   USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+----------------------------------------------------------------------
+   lerobot embeds code derived from DETR — Apache-2.0
+   Copyright 2020 - present, Facebook, Inc.
+   (Full Apache-2.0 text same as above.)
+
+================================================================================
+2. rosetta / rosetta_interfaces — Apache-2.0
+   Copyright Isaac Blankenau
+   https://github.com/isaac-robotics/rosetta
+================================================================================
+
+   Licensed under the Apache License, Version 2.0 (the "License").
+   See the full Apache-2.0 text reproduced under section 1 above, or at:
+   https://www.apache.org/licenses/LICENSE-2.0
+
+================================================================================
+3. lerobot_robot_rosetta — Apache-2.0
+   Copyright Isaac Blankenau
+================================================================================
+
+   Licensed under the Apache License, Version 2.0.
+   See https://www.apache.org/licenses/LICENSE-2.0
+
+================================================================================
+4. lerobot_teleoperator_rosetta — Apache-2.0
+   Copyright Isaac Blankenau
+================================================================================
+
+   Licensed under the Apache License, Version 2.0.
+   See https://www.apache.org/licenses/LICENSE-2.0
+
+================================================================================
+5. aruco_tracker_ros2 — Apache-2.0
+   Maintainer: htchr
+================================================================================
+
+   Licensed under the Apache License, Version 2.0.
+   See https://www.apache.org/licenses/LICENSE-2.0
+
+================================================================================
+6. soa_ros2 packages — Apache-2.0 (most) / BSD (feetech_ros2_driver,
+   soa_moveit_config)
+   Packages: soa_teleop, soa_description, soa_functions, soa_interfaces,
+             soa_bringup, soa_apps, bi_soa_moveit_config  →  Apache-2.0
+             feetech_ros2_driver, soa_moveit_config         →  BSD
+================================================================================
+
+   Apache-2.0 packages: see https://www.apache.org/licenses/LICENSE-2.0
+
+   BSD packages: see BSD-3-Clause notice under section 7 below.
+
+================================================================================
+7. pymoveit2 — BSD-3-Clause
+   Copyright (c) Andrej Orsula
+   https://github.com/AndrejOrsula/pymoveit2
+================================================================================
+
+   Redistribution and use in source and binary forms, with or without
+   modification, are permitted provided that the following conditions are
+   met:
+
+   1. Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+
+   2. Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in the
+      documentation and/or other materials provided with the distribution.
+
+   3. Neither the name of the copyright holder nor the names of its
+      contributors may be used to endorse or promote products derived from
+      this software without specific prior written permission.
+
+   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+   "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+   PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER
+   OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+   EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+   PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+   PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+   LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+   NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+================================================================================
+8. warehouse_ros_mongo — BSD-2-Clause
+   Copyright Bhaskara Marthi / Connor Brew / MoveIt Release Team
+   https://github.com/ros-planning/warehouse_ros_mongo
+================================================================================
+
+   BSD 2-Clause License applies. See https://opensource.org/licenses/BSD-2-Clause
+
+================================================================================
+9. feetech_ros2_driver — BSD
+   https://github.com/rnanosaur/feetech_ros2_driver (or equivalent)
+================================================================================
+
+   BSD License applies. See BSD-3-Clause text under section 7 above.
+
+================================================================================
+10. soa_moveit_config — BSD
+================================================================================
+
+   BSD License applies. See BSD-3-Clause text under section 7 above.
+
+================================================================================
+11. yolo_ros — GPL-3.0
+    Copyright Miguel Ángel González Santamarta
+    https://github.com/mgonzs13/yolo_ros
+================================================================================
+
+   This package is licensed under the GNU General Public License v3.0.
+   Full license text: https://www.gnu.org/licenses/gpl-3.0.txt
+
+   IMPORTANT: GPL-3.0 is a strong copyleft license. Any software that
+   incorporates or links against GPL-3.0 code must also be released under
+   GPL-3.0 (or a compatible license) when distributed.
+
+================================================================================
+12. ROS 2 core packages — Apache-2.0
+    (rclpy, rosbag2_py, rosidl_runtime_py, rcl_interfaces, lifecycle_msgs,
+     std_msgs, std_srvs, sensor_msgs, geometry_msgs, nav_msgs, control_msgs,
+     action_msgs, moveit_msgs, shape_msgs, trajectory_msgs, tf2_ros,
+     cv_bridge, message_filters, visualization_msgs)
+    Copyright Open Robotics / ROS 2 contributors
+    https://github.com/ros2
+================================================================================
+
+   Licensed under the Apache License, Version 2.0.
+   See https://www.apache.org/licenses/LICENSE-2.0
+
+================================================================================
+13. PyTorch / torchvision / torchcodec — BSD-3-Clause
+    Copyright (c) Meta Platforms, Inc. and affiliates
+    https://github.com/pytorch/pytorch
+================================================================================
+
+   Redistribution and use in source and binary forms, with or without
+   modification, are permitted provided that the following conditions are met:
+
+   1. Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+   2. Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in the
+      documentation and/or other materials provided with the distribution.
+   3. Neither the name of the copyright holder nor the names of its
+      contributors may be used to endorse or promote products derived from
+      this software without specific prior written permission.
+
+   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+   AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+   IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+   ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+   LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+   CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+   SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+   INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+   CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+   POSSIBILITY OF SUCH DAMAGE.
+
+================================================================================
+14. NumPy — BSD-3-Clause
+    Copyright (c) 2005-2024, NumPy Developers
+    https://numpy.org
+================================================================================
+
+   BSD-3-Clause License applies. See text under section 13 above.
+
+================================================================================
+15. OpenCV (opencv-python-headless) — Apache-2.0
+    Copyright (c) 2000-2024, Intel Corporation, Willow Garage, Itseez
+    https://opencv.org
+================================================================================
+
+   Licensed under the Apache License, Version 2.0.
+   See https://www.apache.org/licenses/LICENSE-2.0
+
+================================================================================
+16. HuggingFace libraries — Apache-2.0
+    datasets      Copyright 2020 The HuggingFace Datasets Authors
+    diffusers     Copyright 2022 The HuggingFace Team
+    huggingface-hub  Copyright 2021 The HuggingFace Team
+    accelerate    Copyright 2021 The HuggingFace Team
+    https://huggingface.co
+================================================================================
+
+   Licensed under the Apache License, Version 2.0.
+   See https://www.apache.org/licenses/LICENSE-2.0
+
+================================================================================
+17. ultralytics (YOLO) — AGPL-3.0
+    Copyright (c) Ultralytics
+    https://github.com/ultralytics/ultralytics
+================================================================================
+
+   This package is licensed under the GNU Affero General Public License v3.0.
+   Full license text: https://www.gnu.org/licenses/agpl-3.0.txt
+
+   IMPORTANT: AGPL-3.0 requires that if you run a modified version of this
+   software over a network and allow users to interact with it, you must
+   make the complete source code available to those users. This is more
+   restrictive than GPL-3.0 for networked/SaaS deployments.
+
+   Ultralytics also offers commercial licenses for use cases that cannot
+   comply with AGPL-3.0. See https://ultralytics.com/license
+
+================================================================================
+18. gymnasium — MIT
+    Copyright (c) Farama Foundation
+    https://github.com/Farama-Foundation/Gymnasium
+================================================================================
+
+   MIT License
+
+   Permission is hereby granted, free of charge, to any person obtaining a
+   copy of this software and associated documentation files (the "Software"),
+   to deal in the Software without restriction, including without limitation
+   the rights to use, copy, modify, merge, publish, distribute, sublicense,
+   and/or sell copies of the Software, and to permit persons to whom the
+   Software is furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in
+   all copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+   OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+   NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+   DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+   OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+   USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+================================================================================
+19. einops — MIT
+    Copyright (c) 2018 Alex Rogozhnikov
+    https://github.com/arogozhnikov/einops
+================================================================================
+
+   MIT License. See text under section 18 above.
+
+================================================================================
+20. rerun-sdk — Apache-2.0
+    Copyright Rerun.io
+    https://github.com/rerun-io/rerun
+================================================================================
+
+   Licensed under the Apache License, Version 2.0.
+   See https://www.apache.org/licenses/LICENSE-2.0
+
+================================================================================
+21. pynput — LGPL-3.0
+    Copyright (c) Moses Palmér
+    https://github.com/moses-palmer/pynput
+================================================================================
+
+   This library is licensed under the GNU Lesser General Public License v3.0.
+   Full license text: https://www.gnu.org/licenses/lgpl-3.0.txt
+
+   LGPL-3.0 permits use in proprietary software provided that the LGPL
+   component is used as a shared library (dynamically linked) and users can
+   replace or modify it. Static linking may impose additional obligations.
+
+================================================================================
+22. pyserial — BSD-3-Clause
+    Copyright (c) 2001-2020 Chris Liechti
+    https://github.com/pyserial/pyserial
+================================================================================
+
+   BSD-3-Clause License applies. See text under section 13 above.
+
+================================================================================
+23. PyAV (av) — BSD-3-Clause
+    Copyright (c) PyAV Contributors
+    https://github.com/PyAV-Org/PyAV
+================================================================================
+
+   BSD-3-Clause License applies. See text under section 13 above.
+
+   PyAV links against FFmpeg, which is licensed under LGPL-2.1 or GPL-2.0
+   (depending on build configuration). See https://ffmpeg.org/legal.html
+
+================================================================================
+24. wandb — MIT
+    Copyright (c) 2018 Weights and Biases, Inc.
+    https://github.com/wandb/wandb
+================================================================================
+
+   MIT License. See text under section 18 above.
+
+================================================================================
+25. termcolor — MIT
+    Copyright (c) 2008-2011 Volvox Development Team
+    https://github.com/termcolor/termcolor
+================================================================================
+
+   MIT License. See text under section 18 above.
+
+================================================================================
+26. deepdiff — MIT
+    Copyright (c) 2014-2024 Sep Dehpour
+    https://github.com/seperman/deepdiff
+================================================================================
+
+   MIT License. See text under section 18 above.
+
+================================================================================
+27. imageio — BSD-2-Clause
+    Copyright (c) 2014-2024 imageio contributors
+    https://github.com/imageio/imageio
+================================================================================
+
+   BSD 2-Clause License. See https://opensource.org/licenses/BSD-2-Clause
+
+================================================================================
+28. jsonlines — MIT
+    Copyright (c) 2015 Wouter Bolsterlee
+    https://github.com/wbolster/jsonlines
+================================================================================
+
+   MIT License. See text under section 18 above.
+
+================================================================================
+29. draccus — Apache-2.0
+    https://github.com/dlwh/draccus
+================================================================================
+
+   Licensed under the Apache License, Version 2.0.
+   See https://www.apache.org/licenses/LICENSE-2.0
+
+================================================================================
+30. packaging — Apache-2.0 / BSD-2-Clause (dual-licensed)
+    Copyright (c) Donald Stufft and contributors
+    https://github.com/pypa/packaging
+================================================================================
+
+   Dual-licensed under Apache-2.0 and BSD-2-Clause. You may choose either.
+   See https://github.com/pypa/packaging/blob/main/LICENSE
+
+================================================================================
+31. lap — BSD-2-Clause
+    Copyright (c) Matej Smid
+    https://github.com/gatagat/lap
+================================================================================
+
+   BSD 2-Clause License. See https://opensource.org/licenses/BSD-2-Clause
+
+================================================================================
+32. Isaac Lab (isaaclab) / isaaclab_rl — BSD-3-Clause
+    Copyright (c) 2022-2024, The Isaac Lab Project Developers
+    https://github.com/isaac-sim/IsaacLab
+================================================================================
+
+   BSD-3-Clause License applies. See text under section 13 above.
+
+================================================================================
+33. setuptools — MIT
+    Copyright (c) Jason R. Coombs and contributors
+    https://github.com/pypa/setuptools
+================================================================================
+
+   MIT License. See text under section 18 above.
+
+================================================================================
+34. typing-extensions — PSF-2.0
+    Copyright (c) 2001-2024 Python Software Foundation
+    https://github.com/python/typing_extensions
+================================================================================
+
+   Licensed under the Python Software Foundation License Version 2.
+   See https://www.python.org/psf/license/
+
+================================================================================
+END OF THIRD-PARTY NOTICES
+================================================================================
