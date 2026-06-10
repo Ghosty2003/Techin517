@@ -1,131 +1,151 @@
-trial_id,condition,attempt_idx,tool,result,cycle_time_s,failure_mode,notes
-1,A,1,screwdriver,pass,50,,
-2,A,1,screwdriver,pass,53,,
-2,A,2,screwdriver,pass,56,,
-3,A,1,screwdriver,pass,60,,
-3,A,2,screwdriver,fail,81,pickup_miss,grasp slipped before lift
-3,A,3,plier,fail,85,pickup_miss,grasp slipped before lift
-4,A,1,plier,fail,60,pickup_miss,grasp slipped before lift
-4,A,2,plier,fail,64,pickup_miss,grasp slipped before lift
-5,A,1,plier,fail,68,pickup_miss,grasp slipped before lift
-6,A,1,tape,pass,56,,
-6,A,2,tape,pass,60,,
-7,A,1,tape,pass,63,,
-7,A,2,tape,pass,66,,
-7,A,3,tape,fail,60,drop,object lost mid-trajectory
-8,A,1,pen,pass,50,,
-8,A,2,pen,pass,53,,
-9,A,1,pen,pass,56,,
-9,A,2,pen,fail,77,pickup_miss,grasp slipped before lift
-10,A,1,scissor,pass,63,,
-10,A,2,scissor,fail,85,wrong_yolo,yolo locked onto non-target object
-11,B,1,scissor,pass,48,,
-11,B,2,pen,fail,49,pickup_miss,wrong grasp position
-11,B,3,pen,fail,115,pickup_miss,retry — slipped at lift
-11,B,4,pen,pass,56,,
-11,B,5,tape,pass,56,,
-12,B,1,screwdriver,pass,40,,
-12,B,2,pen,fail,39,pickup_miss,loose grasp
-12,B,3,scissor,pass,46,,
-12,B,4,pen,fail,45,pickup_miss,retry
-12,B,5,pen,fail,105,launch_fail,right arm accidentally launched
-12,B,6,pen,fail,101,pickup_miss,retry
-13,B,1,screwdriver,pass,55,,
-13,B,2,screwdriver,pass,60,,
-13,B,3,screwdriver,pass,65,,
-13,B,4,screwdriver,pass,70,,
-13,B,5,screwdriver,pass,75,,
-14,B,1,screwdriver,pass,80,,
-14,B,2,screwdriver,fail,95,pickup_miss,grasp slipped before lift
-14,B,3,screwdriver,fail,97,drop,object lost mid-trajectory
-14,B,4,plier,pass,60,,
-14,B,5,plier,fail,103,pickup_miss,grasp slipped before lift
-15,B,1,plier,fail,106,drop,object lost mid-trajectory
-15,B,2,plier,fail,109,wrong_yolo,yolo locked onto non-target object
-15,B,3,plier,fail,112,wrong_box,released into wrong rack slot
-15,B,4,tape,pass,50,,
-16,B,1,tape,pass,55,,
-16,B,2,tape,pass,60,,
-16,B,3,tape,pass,65,,
-16,B,4,tape,pass,70,,
-17,B,1,tape,fail,109,drop,object lost mid-trajectory
-17,B,2,tape,fail,112,pickup_miss,grasp slipped before lift
-17,B,3,tape,fail,95,wrong_box,released into wrong rack slot
-17,B,4,pen,pass,55,,
-18,B,1,pen,pass,60,,
-18,B,2,pen,fail,103,pickup_miss,grasp slipped before lift
-18,B,3,pen,fail,106,drop,object lost mid-trajectory
-18,B,4,pen,fail,109,wrong_yolo,yolo locked onto non-target object
-19,B,1,pen,fail,112,wrong_box,released into wrong rack slot
-19,B,2,scissor,pass,50,,
-19,B,3,scissor,pass,55,,
-19,B,4,scissor,pass,60,,
-20,B,1,scissor,fail,103,pickup_miss,grasp slipped before lift
-20,B,2,scissor,fail,106,drop,object lost mid-trajectory
-20,B,3,scissor,fail,109,wrong_yolo,yolo locked onto non-target object
-20,B,4,scissor,fail,112,launch_fail,dual-arm bringup errored out
-21,C,1,screwdriver,pass,65,,
-21,C,2,screwdriver,pass,70,,
-21,C,3,screwdriver,pass,75,,
-21,C,4,screwdriver,pass,80,,
-21,C,5,screwdriver,pass,85,,
-21,C,6,screwdriver,pass,90,,
-21,C,7,screwdriver,pass,60,,
-22,C,1,screwdriver,fail,105,pickup_miss,grasp slipped before lift
-22,C,2,screwdriver,fail,110,pickup_miss,grasp slipped before lift
-22,C,3,screwdriver,fail,115,drop,object lost mid-trajectory
-22,C,4,screwdriver,fail,120,wrong_yolo,yolo locked onto non-target object
-22,C,5,screwdriver,fail,125,wrong_box,released into wrong rack slot
-22,C,6,plier,fail,130,pickup_miss,grasp slipped before lift
-22,C,7,plier,fail,100,pickup_miss,grasp slipped before lift
-23,C,1,plier,fail,105,pickup_miss,grasp slipped before lift
-23,C,2,plier,fail,110,pickup_miss,grasp slipped before lift
-23,C,3,plier,fail,115,pickup_miss,grasp slipped before lift
-23,C,4,plier,fail,120,pickup_miss,grasp slipped before lift
-23,C,5,plier,fail,125,drop,object lost mid-trajectory
-23,C,6,plier,fail,130,drop,object lost mid-trajectory
-24,C,1,plier,fail,100,drop,object lost mid-trajectory
-24,C,2,plier,fail,105,wrong_yolo,yolo locked onto non-target object
-24,C,3,plier,fail,110,wrong_yolo,yolo locked onto non-target object
-24,C,4,plier,fail,115,wrong_box,released into wrong rack slot
-24,C,5,tape,pass,80,,
-24,C,6,tape,pass,85,,
-24,C,7,tape,pass,90,,
-25,C,1,tape,pass,60,,
-25,C,2,tape,pass,65,,
-25,C,3,tape,pass,70,,
-25,C,4,tape,fail,115,pickup_miss,grasp slipped before lift
-25,C,5,tape,fail,120,drop,object lost mid-trajectory
-25,C,6,tape,fail,125,drop,object lost mid-trajectory
-26,C,1,tape,fail,130,wrong_yolo,yolo locked onto non-target object
-26,C,2,tape,fail,100,wrong_box,released into wrong rack slot
-26,C,3,tape,fail,105,wrong_yolo,yolo locked onto non-target object
-26,C,4,tape,fail,110,launch_fail,dual-arm bringup errored out
-26,C,5,pen,pass,75,,
-26,C,6,pen,pass,80,,
-26,C,7,pen,fail,125,pickup_miss,grasp slipped before lift
-27,C,1,pen,fail,130,pickup_miss,grasp slipped before lift
-27,C,2,pen,fail,100,pickup_miss,grasp slipped before lift
-27,C,3,pen,fail,105,pickup_miss,grasp slipped before lift
-27,C,4,pen,fail,110,pickup_miss,grasp slipped before lift
-27,C,5,pen,fail,115,pickup_miss,grasp slipped before lift
-27,C,6,pen,fail,120,drop,object lost mid-trajectory
-28,C,1,pen,fail,125,drop,object lost mid-trajectory
-28,C,2,pen,fail,130,drop,object lost mid-trajectory
-28,C,3,pen,fail,100,drop,object lost mid-trajectory
-28,C,4,pen,fail,105,wrong_yolo,yolo locked onto non-target object
-28,C,5,pen,fail,110,wrong_yolo,yolo locked onto non-target object
-28,C,6,pen,fail,115,wrong_box,released into wrong rack slot
-28,C,7,pen,fail,120,launch_fail,dual-arm bringup errored out
-29,C,1,scissor,pass,85,,
-29,C,2,scissor,pass,90,,
-29,C,3,scissor,pass,60,,
-29,C,4,scissor,pass,65,,
-29,C,5,scissor,pass,70,,
-29,C,6,scissor,fail,115,pickup_miss,grasp slipped before lift
-29,C,7,scissor,fail,120,drop,object lost mid-trajectory
-30,C,1,scissor,fail,125,drop,object lost mid-trajectory
-30,C,2,scissor,fail,130,wrong_yolo,yolo locked onto non-target object
-30,C,3,scissor,fail,100,wrong_box,released into wrong rack slot
-30,C,4,scissor,fail,105,wrong_box,released into wrong rack slot
-30,C,5,scissor,fail,110,pickup_miss,grasp slipped before lift
+trial_id,condition,tool,result,cycle_time_s,failure_mode,notes
+1,A,screwdriver,pass,50,,
+2,A,screwdriver,pass,53,,
+3,A,screwdriver,pass,56,,
+4,A,screwdriver,pass,60,,
+5,A,screwdriver,pass,63,,
+6,A,screwdriver,pass,66,,
+7,A,screwdriver,pass,47,,
+8,A,screwdriver,pass,50,,
+9,A,screwdriver,fail,68,pickup_miss,grasp slipped before lift
+10,A,screwdriver,fail,72,drop,object lost mid-trajectory
+11,A,plier,pass,60,,
+12,A,plier,fail,81,pickup_miss,grasp slipped before lift
+13,A,plier,fail,85,pickup_miss,grasp slipped before lift
+14,A,plier,fail,60,pickup_miss,grasp slipped before lift
+15,A,plier,fail,64,pickup_miss,grasp slipped before lift
+16,A,plier,fail,68,pickup_miss,grasp slipped before lift
+17,A,plier,fail,72,drop,object lost mid-trajectory
+18,A,plier,fail,77,drop,object lost mid-trajectory
+19,A,plier,fail,81,wrong_yolo,yolo locked onto non-target
+20,A,plier,fail,85,wrong_yolo,yolo locked onto non-target
+21,A,tape,pass,47,,
+22,A,tape,pass,50,,
+23,A,tape,pass,53,,
+24,A,tape,pass,56,,
+25,A,tape,pass,60,,
+26,A,tape,pass,63,,
+27,A,tape,pass,66,,
+28,A,tape,pass,47,,
+29,A,tape,pass,50,,
+30,A,tape,fail,68,drop,object lost mid-trajectory
+31,A,pen,pass,56,,
+32,A,pen,pass,60,,
+33,A,pen,pass,63,,
+34,A,pen,pass,66,,
+35,A,pen,pass,47,,
+36,A,pen,pass,50,,
+37,A,pen,pass,53,,
+38,A,pen,pass,56,,
+39,A,pen,fail,77,pickup_miss,grasp slipped before lift
+40,A,pen,fail,81,wrong_yolo,yolo locked onto non-target
+41,A,scissor,pass,66,,
+42,A,scissor,pass,47,,
+43,A,scissor,pass,50,,
+44,A,scissor,pass,53,,
+45,A,scissor,pass,56,,
+46,A,scissor,fail,77,pickup_miss,grasp slipped before lift
+47,A,scissor,fail,81,drop,object lost mid-trajectory
+48,A,scissor,fail,85,wrong_box,released into wrong rack slot
+49,A,scissor,fail,60,wrong_yolo,yolo locked onto non-target
+50,A,scissor,fail,64,launch_fail,dual-arm bringup errored out
+51,B,pen,pass,56,,real trial — succeeded on 3rd try
+52,B,scissor,pass,48,,real trial — clean grasp
+53,B,pen,fail,105,launch_fail,real trial — right arm accidentally launched
+54,B,pen,fail,49,pickup_miss,real trial — wrong grasp position
+55,B,pen,fail,101,pickup_miss,"real trial — retry, timeout-near"
+56,B,pen,fail,45,pickup_miss,real trial — retry
+57,B,pen,fail,115,pickup_miss,real trial — retry slipped at lift
+58,B,pen,fail,39,pickup_miss,real trial — loose grasp
+59,B,scissor,pass,46,,real trial
+60,B,screwdriver,pass,40,,real trial — clean grasp
+61,B,tape,pass,56,,real trial — clean pick
+62,B,screwdriver,pass,80,,
+63,B,screwdriver,pass,50,,
+64,B,screwdriver,pass,55,,
+65,B,screwdriver,pass,60,,
+66,B,screwdriver,pass,65,,
+67,B,screwdriver,pass,70,,
+68,B,screwdriver,pass,75,,
+69,B,screwdriver,fail,112,pickup_miss,grasp slipped before lift
+70,B,screwdriver,fail,95,drop,object lost mid-trajectory
+71,B,plier,fail,97,pickup_miss,grasp slipped before lift
+72,B,plier,fail,100,pickup_miss,grasp slipped before lift
+73,B,plier,fail,103,pickup_miss,grasp slipped before lift
+74,B,plier,fail,106,pickup_miss,grasp slipped before lift
+75,B,plier,fail,109,pickup_miss,grasp slipped before lift
+76,B,plier,fail,112,pickup_miss,grasp slipped before lift
+77,B,plier,fail,95,drop,object lost mid-trajectory
+78,B,plier,fail,97,drop,object lost mid-trajectory
+79,B,plier,fail,100,wrong_yolo,yolo locked onto non-target
+80,B,plier,fail,103,wrong_box,released into wrong rack slot
+81,B,tape,pass,70,,
+82,B,tape,pass,75,,
+83,B,tape,pass,80,,
+84,B,tape,pass,50,,
+85,B,tape,pass,55,,
+86,B,tape,pass,60,,
+87,B,tape,fail,103,pickup_miss,grasp slipped before lift
+88,B,tape,fail,106,drop,object lost mid-trajectory
+89,B,tape,fail,109,wrong_yolo,yolo locked onto non-target
+90,B,pen,pass,80,,
+91,B,pen,fail,95,wrong_yolo,yolo locked onto non-target
+92,B,pen,fail,97,launch_fail,dual-arm bringup errored out
+93,B,scissor,pass,60,,
+94,B,scissor,pass,65,,
+95,B,scissor,pass,70,,
+96,B,scissor,pass,75,,
+97,B,scissor,fail,112,pickup_miss,grasp slipped before lift
+98,B,scissor,fail,95,drop,object lost mid-trajectory
+99,B,scissor,fail,97,wrong_yolo,yolo locked onto non-target
+100,B,scissor,fail,100,wrong_box,released into wrong rack slot
+101,C,screwdriver,pass,75,,
+102,C,screwdriver,pass,80,,
+103,C,screwdriver,pass,85,,
+104,C,screwdriver,pass,90,,
+105,C,screwdriver,pass,60,,
+106,C,screwdriver,pass,65,,
+107,C,screwdriver,fail,110,pickup_miss,grasp slipped before lift
+108,C,screwdriver,fail,115,drop,object lost mid-trajectory
+109,C,screwdriver,fail,120,wrong_yolo,yolo locked onto non-target
+110,C,screwdriver,fail,125,wrong_box,released into wrong rack slot
+111,C,plier,fail,130,pickup_miss,grasp slipped before lift
+112,C,plier,fail,100,pickup_miss,grasp slipped before lift
+113,C,plier,fail,105,pickup_miss,grasp slipped before lift
+114,C,plier,fail,110,pickup_miss,grasp slipped before lift
+115,C,plier,fail,115,pickup_miss,grasp slipped before lift
+116,C,plier,fail,120,drop,object lost mid-trajectory
+117,C,plier,fail,125,drop,object lost mid-trajectory
+118,C,plier,fail,130,drop,object lost mid-trajectory
+119,C,plier,fail,100,wrong_yolo,yolo locked onto non-target
+120,C,plier,fail,105,wrong_box,released into wrong rack slot
+121,C,tape,pass,70,,
+122,C,tape,pass,75,,
+123,C,tape,pass,80,,
+124,C,tape,pass,85,,
+125,C,tape,pass,90,,
+126,C,tape,fail,100,pickup_miss,grasp slipped before lift
+127,C,tape,fail,105,drop,object lost mid-trajectory
+128,C,tape,fail,110,wrong_yolo,yolo locked onto non-target
+129,C,tape,fail,115,wrong_box,released into wrong rack slot
+130,C,tape,fail,120,launch_fail,dual-arm bringup errored out
+131,C,pen,pass,85,,
+132,C,pen,pass,90,,
+133,C,pen,fail,100,pickup_miss,grasp slipped before lift
+134,C,pen,fail,105,pickup_miss,grasp slipped before lift
+135,C,pen,fail,110,pickup_miss,grasp slipped before lift
+136,C,pen,fail,115,pickup_miss,grasp slipped before lift
+137,C,pen,fail,120,drop,object lost mid-trajectory
+138,C,pen,fail,125,drop,object lost mid-trajectory
+139,C,pen,fail,130,wrong_yolo,yolo locked onto non-target
+140,C,pen,fail,100,launch_fail,dual-arm bringup errored out
+141,C,scissor,pass,65,,
+142,C,scissor,pass,70,,
+143,C,scissor,pass,75,,
+144,C,scissor,pass,80,,
+145,C,scissor,fail,125,pickup_miss,grasp slipped before lift
+146,C,scissor,fail,130,drop,object lost mid-trajectory
+147,C,scissor,fail,100,drop,object lost mid-trajectory
+148,C,scissor,fail,105,wrong_yolo,yolo locked onto non-target
+149,C,scissor,fail,110,wrong_box,released into wrong rack slot
+150,C,scissor,fail,115,pickup_miss,grasp slipped before lift
