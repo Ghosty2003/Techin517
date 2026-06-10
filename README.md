@@ -162,8 +162,11 @@ Models live under `~/techin517/outputs/train/`. Pre-trained weights and the reco
 
 | Policy | HF path | Local path |
 |---|---|---|
-| Right arm — scissors | [`SuzyBeatSushi/pick_up_right_scissors`](https://huggingface.co/SuzyBeatSushi/pick_up_right_scissors) | `outputs/train/pick_up_right_scissors/checkpoints/100000/pretrained_model` |
-| Left arm — pen | [`SuzyBeatSushi/pick_up_left_scissors`](https://huggingface.co/SuzyBeatSushi/pick_up_left_scissors) | `outputs/train/pick_up_left_scissors/checkpoints/100000/pretrained_model` |
+| Right arm — scissor | [`SuzyBeatSushi/pick_up_right_scissors`](https://huggingface.co/SuzyBeatSushi/pick_up_right_scissors) | `outputs/train/pick_up_right_scissors/checkpoints/100000/pretrained_model` |
+| Right arm — screwdriver | [`SuzyBeatSushi/pick_up_right_screwdriver`](https://huggingface.co/SuzyBeatSushi/pick_up_right_screwdriver) | `outputs/train/pick_up_right_screwdriver/checkpoints/100000/pretrained_model` |
+| Left arm — pen | [`SuzyBeatSushi/pick_up_left_pen`](https://huggingface.co/SuzyBeatSushi/pick_up_left_pen) | `outputs/train/pick_up_left_pen/checkpoints/100000/pretrained_model` |
+| Left arm — tape | [`SuzyBeatSushi/pick_up_left_tape`](https://huggingface.co/SuzyBeatSushi/pick_up_left_tape) | `outputs/train/pick_up_left_tape/checkpoints/100000/pretrained_model` |
+| Left arm — plier | [`SuzyBeatSushi/pick_up_left_plier`](https://huggingface.co/SuzyBeatSushi/pick_up_left_plier) | `outputs/train/pick_up_left_plier/checkpoints/100000/pretrained_model` |
 | YOLOv8m — 5-tool detector | [`SuzyBeatSushi/yolo-5tool-detector`](https://huggingface.co/SuzyBeatSushi/yolo-5tool-detector) | `outputs/yolo/best.pt` |
 | Dataset (50 episodes, 35 144 frames) | [`SuzyBeatSushi/bi_so101_test`](https://huggingface.co/datasets/SuzyBeatSushi/bi_so101_test) | `huggingface/lerobot/project/bi_so101_test/` |
 
@@ -236,7 +239,7 @@ ros2 launch rosetta rosetta_client_launch.py \
 ros2 launch rosetta rosetta_client_launch.py \
     node_name:=rosetta_client_left \
     contract_path:=$HOME/techin517/ros2_ws/src/soa_ros2/soa_bringup/rosetta_contracts/bi_soa_left_arm_contract.yaml \
-    pretrained_name_or_path:=$HOME/techin517/outputs/train/pick_up_left_scissors/checkpoints/100000/pretrained_model \
+    pretrained_name_or_path:=$HOME/techin517/outputs/train/pick_up_left_pen/checkpoints/100000/pretrained_model \
     server_address:=127.0.0.1:8081
 ```
 
