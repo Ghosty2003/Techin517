@@ -162,9 +162,10 @@ Models live under `~/techin517/outputs/train/`. Download from the team's Hugging
 
 | Policy | HF path | Local path |
 |---|---|---|
-| Right arm — scissors | `<HuggingFace repo>` | `outputs/train/pick_up_right_scissors/checkpoints/100000/pretrained_model` |
-| Left arm — pen | `<HuggingFace repo>` | `outputs/train/pick_up_left_scissors/checkpoints/100000/pretrained_model` |
-| YOLOv8m — 5-tool detector | `<HuggingFace repo>` | `outputs/yolo/best.pt` |
+| Right arm — scissors | [`SuzyBeatSushi/pick_up_right_scissors`](https://huggingface.co/SuzyBeatSushi/pick_up_right_scissors) | `outputs/train/pick_up_right_scissors/checkpoints/100000/pretrained_model` |
+| Left arm — pen | [`SuzyBeatSushi/pick_up_left_scissors`](https://huggingface.co/SuzyBeatSushi/pick_up_left_scissors) | `outputs/train/pick_up_left_scissors/checkpoints/100000/pretrained_model` |
+| YOLOv8m — 5-tool detector | [`SuzyBeatSushi/yolo-5tool-detector`](https://huggingface.co/SuzyBeatSushi/yolo-5tool-detector) | `outputs/yolo/best.pt` |
+| Dataset (50 episodes, 35 144 frames) | [`SuzyBeatSushi/bi_so101_test`](https://huggingface.co/datasets/SuzyBeatSushi/bi_so101_test) | `huggingface/lerobot/project/bi_so101_test/` |
 
 The HuggingFace cache is symlinked into `huggingface/` via `docker/setup.sh` so models persist across container restarts.
 
@@ -180,7 +181,7 @@ sudo chmod 666 /dev/ttyACM* /dev/video*      # permissions reset on every replug
 
 ## Usage
 
-The full pipeline runs in three terminals — MoveIt bringup, two Rosetta policy clients, then the grasp pipeline. Replace `<HF_USER>` and policy checkpoint paths with your own.
+The full pipeline runs in three terminals — MoveIt bringup, two Rosetta policy clients, then the grasp pipeline. Pre-trained checkpoints live under [SuzyBeatSushi](https://huggingface.co/SuzyBeatSushi) on HuggingFace.
 
 ### 1. Calibrate the arms (one-time per arm)
 
