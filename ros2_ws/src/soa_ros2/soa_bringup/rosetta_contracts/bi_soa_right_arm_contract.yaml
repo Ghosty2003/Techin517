@@ -1,0 +1,61 @@
+
+robot_type: soa
+fps: 100
+max_duration_s: 120.0
+observations:
+ # Right wrist cam -> model's observation.images.front
+ - key: observation.images.front
+   topic: /right_follower/image_raw/compressed
+   type: sensor_msgs/msg/CompressedImage
+   image:
+     resize: [640, 480]
+   align: {strategy: hold, stamp: header}
+   qos: {reliability: best_effort, history: keep_last, depth: 10}
+
+ # Joint states — global namespace, right arm joints prefixed with right_
+ - key: observation.state
+   topic: /joint_states
+   type: sensor_msgs/msg/JointState
+   selector:
+     names:
+       - position.right_shoulder_pan
+       - position.right_shoulder_lift
+       - position.right_elbow_flex
+       - position.right_wrist_flex
+       - position.right_wrist_roll
+       - position.right_gripper
+   align: {strategy: hold, stamp: header}
+   qos: {reliability: best_effort, history: keep_last, depth: 50}
+   unit_conversion: rad2deg
+
+actions:
+ # Right arm ForwardCommandController
+ - key: action
+   publish:
+     topic: /right_arm_fwd_controller/commands
+     type: std_msgs/msg/Float64MultiArray
+     qos: {reliability: reliable, history: keep_last, depth: 10}
+   selector:
+     names:
+       - position.right_shoulder_pan
+       - position.right_shoulder_lift
+       - position.right_elbow_flex
+       - position.right_wrist_flex
+       - position.right_wrist_roll
+   unit_conversion: rad2deg
+   safety_behavior: hold
+
+ # Right gripper ForwardCommandController
+ - key: action
+   publish:
+     topic: /right_gripper_fwd_controller/commands
+     type: std_msgs/msg/Float64MultiArray
+     qos: {reliability: reliable, history: keep_last, depth: 10}
+   selector:
+     names:
+       - position.right_gripper
+   unit_conversion: rad2deg
+   safety_behavior: hold
+
+recording:
+ storage: mcap

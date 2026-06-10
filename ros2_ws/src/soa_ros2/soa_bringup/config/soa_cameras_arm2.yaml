@@ -1,0 +1,10 @@
+# Camera configuration for arm2.
+# Wrist cam only — the overhead RealSense is shared (launched by arm1).
+
+cameras:
+  - name: wrist_cam_arm2
+    camera_type: usb_camera
+    param_path: soa_usb_cam.yaml
+    attached_to: arm2
+    video_device: /dev/video8
+    frame_id: arm2/gripper_frame_link

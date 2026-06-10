@@ -1,0 +1,51 @@
+# Python bytecode & caches
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+*.whl
+pip-wheel-metadata/
+
+# Virtual environments
+env_isaaclab/
+.venv/
+venv/
+.env
+
+# Editor / OS cruft
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+# Note: .vscode/ is intentionally NOT ignored — see .vscode/.gitignore
+
+# Isaac Sim symlink (matches _isaac_sim, _isaac_sim4, etc.)
+_isaac_sim*
+
+# Docker runtime artifacts (mirrors .dockerignore)
+docker/cluster/exports/
+docker/.container.cfg
+docker/.isaac-lab-docker-history
+
+# RL training & experiment outputs (mirrors .dockerignore)
+logs/
+outputs/
+runs/
+videos/
+wandb/
+recordings/
+
+# Misc temp files
+*.tmp
+*.log
+
+# Stray Claude Code transcript dumps that occasionally land at the repo root
+*-local-command-caveat*.txt

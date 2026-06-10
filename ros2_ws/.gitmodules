@@ -1,0 +1,31 @@
+[submodule "src/lerobot-robot-rosetta"]
+	path = src/lerobot-robot-rosetta
+	url = https://github.com/iblnkn/lerobot-robot-rosetta.git
+[submodule "src/lerobot-teleoperator-rosetta"]
+	path = src/lerobot-teleoperator-rosetta
+	url = https://github.com/iblnkn/lerobot-teleoperator-rosetta.git
+[submodule "src/rosetta"]
+	path = src/rosetta
+	url = https://github.com/iblnkn/rosetta.git
+[submodule "src/rosetta_interfaces"]
+	path = src/rosetta_interfaces
+	url = https://github.com/iblnkn/rosetta_interfaces.git
+[submodule "src/pymoveit2"]
+	path = src/pymoveit2
+	url = https://github.com/AndrejOrsula/pymoveit2.git
+[submodule "src/warehouse_ros_mongo"]
+	path = src/warehouse_ros_mongo
+	url = https://github.com/moveit/warehouse_ros_mongo.git
+	branch = ros2
+[submodule "src/yolo_ros"]
+	path = src/yolo_ros
+	url = https://github.com/mgonzs13/yolo_ros.git
+[submodule "src/soa_ros2/feetech_ros2_driver"]
+	path = src/soa_ros2/feetech_ros2_driver
+	url = https://github.com/JafarAbdi/feetech_ros2_driver.git
+[submodule "src/ros2_handeye_calibration"]
+	path = src/ros2_handeye_calibration
+	url = https://github.com/GIXLabs/ros2_handeye_calibration.git
+[submodule "src/aruco_tracker_ros2"]
+	path = src/aruco_tracker_ros2
+	url = https://github.com/GIXLabs/aruco_tracker_ros2.git

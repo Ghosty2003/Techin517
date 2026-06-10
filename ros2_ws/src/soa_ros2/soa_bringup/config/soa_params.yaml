@@ -1,0 +1,17 @@
+# SOA single-arm hardware parameters
+# Single source of truth for ports, robot IDs, and calibration directories.
+# Calibration files live at: {calibration_dir}/{id}.json
+# Example: id="gix-follower1", calibration_dir="/home/ubuntu/soa_dev/huggingface"
+#          → reads /home/ubuntu/soa_dev/huggingface/gix-follower1.json
+
+/**:
+  ros__parameters:
+    follower:
+      id: "Kid_right"
+      usb_port: "/dev/ttyACM0"
+      calibration_dir: "/home/ubuntu/techin517/huggingface/lerobot/calibration/robots/so_follower"
+
+    leader:
+      id: "Mom_right"
+      usb_port: "/dev/ttyACM3"
+      calibration_dir: "/home/ubuntu/techin517/huggingface/lerobot/calibration/teleoperators/so_leader"

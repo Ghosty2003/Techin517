@@ -1,0 +1,16 @@
+# SOA arm2 hardware parameters — second follower arm.
+# Update usb_port, id, and calibration_dir to match the physical arm2 setup.
+# Find the USB port with: ls /dev/ttyACM* before and after plugging in the arm.
+# Find the calibration ID from the LeRobot calibration directory.
+
+/**:
+  ros__parameters:
+    follower:
+      id: "Kid_left"
+      usb_port: "/dev/ttyACM4"
+      calibration_dir: "/home/ubuntu/techin517/huggingface/lerobot/calibration/robots/so_follower"
+
+    leader:
+      id: "Mom_left"
+      usb_port: "/dev/ttyACM2"
+      calibration_dir: "/home/ubuntu/techin517/huggingface/lerobot/calibration/teleoperators/so_leader"
