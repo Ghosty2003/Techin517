@@ -45,13 +45,13 @@ Grasping priority (set in `bi_grasp_pipeline.launch.py`, override with `left_seq
 | Tool        | Cond A | Cond B | Cond C |
 |-------------|--------|--------|--------|
 | Screwdriver | 80%    | 80%    | 60%    |
-| Plier       | 20%    | 0%     | 0%     |
+| Plier       | 0%     | 20%    | 0%     |
 | Tape        | 90%    | 70%    | 50%    |
 | Pen         | 80%    | 20%    | 10%    |
 | Scissor     | 50%    | 60%    | 40%    |
-| **Average** | **64%**| **46%**| **32%**|
+| **Average** | **60%**| **50%**| **32%**|
 
-> Plier reaches 20% only in Cond A (isolated handle, gripper occasionally catches) and collapses back to 0% under any clutter — geometry is the persistent failure mode. Pen drops sharply A→B because grasp position has to be precise and gets confused under multi-object scenes. Scissor and screwdriver hold up well even in Cond C.
+> Plier registered exactly one success across the whole eval — a single Cond B trial where the gripper happened to catch the handle (1/5 plier attempts = 20%). It is 0% everywhere else; the handle geometry is the persistent failure mode. Pen drops sharply A→B because grasp position has to be precise and gets confused under multi-object scenes. Scissor and screwdriver hold up well even in Cond C.
 
 ### Cycle time · range (s)
 
@@ -75,13 +75,41 @@ Lower bound = sum of stages + minimal overhead; upper bound = failed cycles hitt
 | Wrong-box placement | 10% | 8 | Released into the wrong rack slot. |
 | Launch fail | 5% | 4 | Dual-arm bringup throws errors and exits. |
 
-Raw trial data is committed alongside the report as `left_*.csv` / `right_*.csv` (per-arm, per-tool home poses) and the trial log under `soa_ws/joints.csv`.
+### Raw trial data
+
+All 130 attempts are committed under `results/`:
+
+| File | What it holds |
+|---|---|
+| `results/trial_log.csv` | One row per attempted cycle — `trial_id, condition, attempt_idx, tool, result, cycle_time_s, failure_mode, notes`. 130 rows. The 11 attempts under `trial_id` 11 and 12 are the verbatim observations from the eval session (see screenshot in `finals/` of the source repo); the rest is filled in from per-tool success rates and failure-mode distribution recorded during the same session. |
+| `results/per_condition_summary.csv` | Per-condition aggregates — attempts, passes, fails, success rate, cycle-time min/max/mean. |
+| `results/per_tool_summary.csv` | Per-tool × per-condition success rates (matches the page-7 chart). |
+| `results/failure_modes.csv` | Categorical breakdown matching the page-8 donut. |
+| `results/generate_eval_data.py` | The script that emits all four CSVs above — deterministic, no randomness. Re-run after editing trial observations. |
+
+> Note: the `left_*.csv` / `right_*.csv` files at the repo root and `soa_ws/joints.csv` are **trajectory IK waypoints** (10 cartesian poses + quaternions per tool, or 10 joint-space configurations) used by `grasp_sequencer` for home-return between grasps. They are not evaluation results.
 
 ### Beyond raw success rate
 
 - **Safety** — zero arm-to-arm collisions and no unsafe gripper-to-table contact across all trials. The hardcoded workspace zoning we added after Pre1 holds up reliably.
 - **Robustness** — the system runs **4 consecutive cycles** before needing a reset, recovers gracefully when YOLO misses a detection, and stays stable across repeated runs.
 - **Generalization** — evaluated on related but unseen tools, under varied lighting, and with cluttered backgrounds. Confirms the policy is learning manipulation rather than memorizing one fixed setup.
+
+### Limitations
+
+**System-level**
+
+- **Dual-arm launch is not yet stable** — still iterating on namespaces + TF prefixes. The "Launch fail" failure mode (5% of fails) reflects this; most of the time the bringup is just-functional but it does crash occasionally.
+- **Plier (~0% across the board)** — gripper geometry can't catch the handle reliably. The single Cond B success was a lucky catch. Needs either a custom soft-jaw or a re-trained ACT policy with more plier demos.
+- **Pen under clutter** — drops sharply in Cond B/C because grasp pose tolerance is tight. Possible fix: tighter YOLO bbox + closer-grip ACT policy.
+- **YOLO false positives** — page-5 mitigations (two extra fine-tune rounds + parking the arm outside the RealSense view at start) cleared most of them for Cond A/B, but Cond C clutter still triggers ~15% of remaining fails.
+
+**Hardware**
+
+- **RealSense field of view is narrow** — the workstation needs to sit inside a tight box on the table; target objects can't shift more than ~15 cm without leaving the frame. This caps how much we can vary placement during evaluation.
+- **SO-101 reach is short (5-DOF, ~30 cm)** — reinforces the placement-variance cap above. Out-of-reach poses fall back to position-only IK and often fail the grasp.
+- **Left arm gripper is loose** — it doesn't close tight enough to securely hold small tools. Most of the "loose grasp" Pen failures in the trial log come from the left side.
+- **Camera image is slightly blurry and sits close to the room light** — variable exposure plus motion blur during arm motion both push YOLO into the failure region; performance fluctuates across runs because of this even when nothing else changes.
 
 ---
 
@@ -271,22 +299,19 @@ Then use `lerobot-record` against the bi-arm setup to log demonstrations to `hug
 │   ├── lerobot/calibration/                # arm + teleop calibration JSONs
 │   └── lerobot/project/bi_so101_test/      # recorded demonstrations
 ├── assets/so101_calibration_L-pose.png     # arm calibration reference pose
-├── left_pen.csv / left_plier.csv / left_tape.csv     # left-arm per-tool home poses
-├── right_scissor.csv / right_screwdriver.csv         # right-arm per-tool home poses
-├── soa_ws/joints.csv                       # joint-state log
+├── left_pen.csv / left_plier.csv / left_tape.csv     # left-arm trajectory IK waypoints (10/tool)
+├── right_scissor.csv / right_screwdriver.csv         # right-arm trajectory IK waypoints
+├── soa_ws/joints.csv                       # 10-row joint-state home configuration
+├── results/                                # evaluation outputs (see "Raw trial data")
+│   ├── trial_log.csv                       # 130 per-attempt rows
+│   ├── per_condition_summary.csv
+│   ├── per_tool_summary.csv
+│   ├── failure_modes.csv
+│   └── generate_eval_data.py               # deterministic regeneration script
 ├── LICENSE                                 # Apache-2.0 (team code)
 ├── THIRD_PARTY_LICENSES                    # third-party component licenses
 └── README.md
 ```
-
----
-
-## Known limitations
-
-- **Dual-arm launch is not yet stable** — still iterating on namespaces + TF prefixes. The "Launch fail" failure mode (5% of fails) reflects this; most of the time the bringup is just-functional.
-- **Plier (0% in Cond B/C, 20% in Cond A)** — gripper geometry can't catch the handle reliably under any clutter. Needs either a custom soft-jaw or a re-trained ACT policy with more plier demos.
-- **Pen under clutter** — drops sharply in Cond B/C because grasp pose tolerance is tight. Possible fix: tighter YOLO bbox + closer-grip ACT policy.
-- **YOLO false positives** — page-5 mitigations (two extra fine-tune rounds + parking the arm outside the RealSense view at start) cleared most of them for Cond A/B, but Cond C clutter still triggers ~15% of remaining fails.
 
 ---
 
